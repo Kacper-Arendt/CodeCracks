@@ -1,9 +1,14 @@
 {
   "compilerOptions": {
+    "baseUrl": "./",
     "lib": ["ES2015"],
     "module": "CommonJS",
     "outDir": "./dist",
-    "rootDir": "./src"
+    "rootDir": "./src",
+    "preserveSymlinks": true,
+    "typeRoots": [
+      "/node_modules/@types"
+    ]
   },
   "exclude": ["node_modules"],
   "extends": "tsconfig/base.json",

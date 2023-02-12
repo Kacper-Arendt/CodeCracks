@@ -1,22 +1,31 @@
-import { json, urlencoded } from "body-parser";
-import express from "express";
-import morgan from "morgan";
-import cors from "cors";
+import express from 'express';
+
+// MIDDLEWARES
+import morgan from 'morgan';
+import cors from 'cors';
+import helmet from 'helmet';
+import { errorHandler } from 'src/utils/errorHandler';
+import { unknownEndpoint } from 'src/utils/unknownEndpoint';
 
 export const createServer = () => {
-  const app = express();
-  app
-    .disable("x-powered-by")
-    .use(morgan("dev"))
-    .use(urlencoded({ extended: true }))
-    .use(json())
-    .use(cors())
-    .get("/message/:name", (req, res) => {
-      return res.json({ message: `hello ${req.params.name}` });
-    })
-    .get("/healthz", (req, res) => {
-      return res.json({ ok: true });
-    });
+	const app = express();
 
-  return app;
+	app
+		.disable('x-powered-by')
+		.use(morgan('dev'))
+		.use(helmet())
+		.use(cors())
+		.use(express.urlencoded())
+		.use(express.json());
+
+	app.get('', (req: any, res: any) => {
+		return res.json({
+			message: `hello ${req.params.name}`,
+		});
+	});
+
+	app.use(errorHandler);
+	app.use(unknownEndpoint);
+
+	return app;
 };
