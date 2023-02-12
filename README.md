@@ -13,13 +13,13 @@ their finances, and test their knowledge about Lord of the Rings.
 
 ## Roadmap
 
-:wrench: Basic Structure: Set up the project structure using Turborepo and create a basic React & Express setup.
+:white_check_mark: Basic Structure: Set up the project structure using Turborepo and create a basic React & Express setup.
 
-:white_large_square: Connecting Server with Frontend: Connect the frontend to the backend server using APIs.
+:white_check_mark: Connecting Server with Frontend: Connect the frontend to the backend server using APIs.
+
+:wrench: Deployment: Deploy the application to a cloud platform or a web server.
 
 :white_large_square: Database: Implement a database to store app data.
-
-:white_large_square: Deployment: Deploy the application to a cloud platform or a web server.
 
 :white_large_square: Core: Basic app layout.
 
