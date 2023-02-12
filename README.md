@@ -1,40 +1,34 @@
-# Turborepo kitchen sink starter
+# Notes, Finance Tracker & Quiz Game
 
-This is an official starter Turborepo with multiple meta-frameworks all working in harmony and sharing packages.
+This is a full-stack React & Express application built with Turborepo that allows users to manage their notes, keep track of
+their finances, and test their knowledge about Lord of the Rings.
 
-## What's inside?
+## Features
 
-This Turborepo includes the following packages and apps:
+- Notes: Users can create, edit, and delete their notes.
+- Finance Tracker: Users can add, edit, and delete their
+- financial transactions, categorize them, and view their overall financial status.
+- Quiz Game: Users can answer multiple-choice questions about Lord of the Rings and get their score after completing the
+  quiz.
 
-### Apps and Packages
+## Roadmap
 
-- `api`: an [Express](https://expressjs.com/) server
-- `storefront`: a [Next.js](https://nextjs.org/) app
-- `admin`: a [Vite](https://vitejs.dev/) single page app
-- `blog`: a [Remix](https://remix.run/) blog
-- `logger`: isomorphic logger (a small wrapper around console.log)
-- `ui`: a dummy React UI library (which contains a single `<CounterButton>` component)
-- `scripts`: Jest and ESLint configurations
-- `tsconfig`: tsconfig.json;s used throughout the monorepo
+:wrench: Basic Structure: Set up the project structure using Turborepo and create a basic React & Express setup.
 
-Each package and app is 100% [TypeScript](https://www.typescriptlang.org/).
+:white_large_square: Connecting Server with Frontend: Connect the frontend to the backend server using APIs.
 
-### Utilities
+:white_large_square: Database: Implement a database to store app data.
 
-This Turborepo has some additional tools already setup for you:
+:white_large_square: Deployment: Deploy the application to a cloud platform or a web server.
 
-- [TypeScript](https://www.typescriptlang.org/) for static type checking
-- [ESLint](https://eslint.org/) for code linting
-- [Jest](https://jestjs.io) test runner for all things JavaScript
-- [Prettier](https://prettier.io) for code formatting
+:white_large_square: Core: Basic app layout.
 
-## Using this example
+:white_large_square: Authentication: Implement authentication for users to log in and secure their data.
 
-Run the following command:
+:white_large_square: Notes: Implement the notes feature.
 
-```sh
-npx degit vercel/turbo/examples/kitchen-sink kitchen-sink
-cd kitchen-sink
-pnpm install
-git init . && git add . && git commit -m "Init"
-```
+:white_large_square: Quiz: Implement the quiz game feature.
+
+ 
+
+
