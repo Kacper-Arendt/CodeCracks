@@ -13,7 +13,6 @@
     "build:start3": "ts-node src/api.ts",
     "docker:build": "tar -C ../.. --exclude='node_modules' --exclude='dist' --exclude='web/build' --exclude='web/cache' --exclude='.git' --exclude='.idea' --exclude='.github' -cf - . | docker build --progress=plain -f apps/api/Dockerfile - -t mono/api",
     "docker:start": "docker run --rm -it -p 3002:3002 -e DATABASE_URL=postgresql://test:test@mono-api-db:5432/api --link=mono-api-db mono/api",
-    "start": "concurrently -kn=api,db 'pnpm:api:start' 'pnpm:db:start'",
     "type-check": "tsc"
   },
   "keywords": [],
