@@ -20,7 +20,7 @@ export const createServer = () => {
 
 	app.get('', (req: any, res: any) => {
 		return res.json({
-			message: `hello ${req.params.name}`,
+			message: `hello żółtko`,
 		});
 	});
 
