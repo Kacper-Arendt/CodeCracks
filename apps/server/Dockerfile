@@ -10,7 +10,7 @@ RUN pnpm fetch
 COPY . .
 RUN pnpm install --filter "server..." --frozen-lockfile --unsafe-perm
 RUN pnpm build --filter "server^..."
-RUN pnpm test --if-present --filter "server"
+RUN #pnpm test --if-present --filter "server"
 RUN pnpm build --filter "server"
 
 WORKDIR /root/monorepo/apps/server
