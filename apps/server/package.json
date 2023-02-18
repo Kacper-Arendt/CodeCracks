@@ -3,12 +3,12 @@
   "version": "0.0.0",
   "private": true,
   "scripts": {
+    "build": "tsup src/index.ts --format cjs",
     "clean": "rm -rf .turbo && rm -rf node_modules && rm -rf dist",
+    "dev": "tsup src/index.ts --format cjs --watch --onSuccess \"node dist/index.js\"",
     "lint": "tsc --noEmit && TIMING=1 eslint \"src/**/*.ts*\"",
-    "test": "jest --detectOpenHandles",
-    "build": "tsc -p tsconfig.json",
-    "start": "node index.js",
-    "dev": "ts-node-dev index.ts"
+    "start": "node dist/index.js",
+    "test": "jest --detectOpenHandles"
   },
   "jest": {
     "preset": "jest-presets/jest/node"
