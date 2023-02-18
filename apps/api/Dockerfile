@@ -4,7 +4,7 @@ WORKDIR /app
 RUN apk update && yarn global add turbo
 COPY . .
 RUN turbo prune --scope=api --docker
-
+ENV PATH="${PATH}:/usr/local/turbo/bin"
 # INSTALLER - Stage 2
 FROM node:alpine as installer
 WORKDIR /app
