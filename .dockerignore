@@ -1,0 +1,22 @@
+# flyctl launch added from .gitignore
+**/.DS_Store
+**/node_modules
+**/.turbo
+**/*.log
+**/.next
+**/dist
+**/dist-ssr
+**/*.local
+**/.env
+**/.cache
+**/server/dist
+**/public/dist
+**/.turbo
+
+# flyctl launch added from .idea/.gitignore
+# Default ignored files
+.idea/shelf
+.idea/workspace.xml
+# Editor-based HTTP Client requests
+.idea/httpRequests
+fly.toml
