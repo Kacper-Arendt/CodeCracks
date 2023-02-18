@@ -8,10 +8,10 @@ FROM base AS dev
 COPY ./pnpm-lock.yaml .
 RUN pnpm fetch
 COPY . .
-RUN pnpm install --filter "@mono/api..." --frozen-lockfile --unsafe-perm
-RUN pnpm build --filter "@mono/api^..."
-RUN pnpm test --if-present --filter "@mono/api"
-RUN pnpm build --filter "@mono/api"
+RUN pnpm install --filter "api..." --frozen-lockfile --unsafe-perm
+RUN pnpm build --filter "api^..."
+RUN pnpm test --if-present --filter "api"
+RUN pnpm build --filter "api"
 
 WORKDIR /root/monorepo/apps/api
 EXPOSE 3002
