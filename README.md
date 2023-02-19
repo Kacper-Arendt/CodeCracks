@@ -17,13 +17,15 @@ their finances, and test their knowledge about Lord of the Rings.
 
 :white_check_mark: Connecting Server with Frontend: Connect the frontend to the backend server using APIs.
 
-:wrench: Deployment: Deploy the application to a cloud platform or a web server.
+:white_check_mark: Deployment: Deploy the application to a cloud platform or a web server.
+
+:wrench: Authentication:
+  - Registration :wrench: 
+  - Login :white_large_square:
 
 :white_large_square: Database: Implement a database to store app data.
 
 :white_large_square: Core: Basic app layout.
-
-:white_large_square: Authentication: Implement authentication for users to log in and secure their data.
 
 :white_large_square: Notes: Implement the notes feature.
 
