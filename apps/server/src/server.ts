@@ -7,6 +7,9 @@ import helmet from 'helmet';
 import { errorHandler } from 'src/utils/errorHandler';
 import { unknownEndpoint } from 'src/utils/unknownEndpoint';
 
+// ROUTES
+import { routes } from 'src/routes';
+
 export const createServer = () => {
 	const app = express();
 
@@ -18,11 +21,7 @@ export const createServer = () => {
 		.use(express.urlencoded())
 		.use(express.json());
 
-	app.get('', (req: any, res: any) => {
-		return res.json({
-			message: `hello żółtko`,
-		});
-	});
+	app.use('/', routes);
 
 	app.use(errorHandler);
 	app.use(unknownEndpoint);
