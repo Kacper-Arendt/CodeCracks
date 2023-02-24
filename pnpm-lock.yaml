@@ -15,6 +15,7 @@ importers:
 
   apps/server:
     specifiers:
+      '@prisma/client': latest
       '@types/body-parser': ^1.19.0
       '@types/cors': ^2.8.10
       '@types/express': ^4.17.17
@@ -25,7 +26,6 @@ importers:
       '@types/supertest': ^2.0.12
       body-parser: ^1.19.0
       cors: ^2.8.5
-      database: workspace:*
       esbuild: ^0.17.8
       eslint: ^7.32.0
       eslint-config-custom-server: workspace:*
@@ -34,6 +34,7 @@ importers:
       jest: ^26.6.3
       jest-presets: workspace:*
       morgan: ^1.10.0
+      prisma: latest
       server-utils: workspace:*
       supertest: ^6.2.4
       ts-node: ^10.9.1
@@ -41,10 +42,10 @@ importers:
       tsup: ^6.2.3
       typescript: ^4.8.3
     dependencies:
+      '@prisma/client': 4.10.1_prisma@4.10.1
       '@types/express-serve-static-core': 4.17.33
       body-parser: 1.20.1
       cors: 2.8.5
-      database: link:../../packages/database
       esbuild: 0.17.8
       express: 4.18.2
       helmet: 6.0.1
@@ -65,6 +66,7 @@ importers:
       eslint-config-custom-server: link:../../packages/eslint-config-custom-server
       jest: 26.6.3_ts-node@10.9.1
       jest-presets: link:../../packages/jest-presets
+      prisma: 4.10.1
       supertest: 6.3.3
       typescript: 4.9.5
 
@@ -94,15 +96,6 @@ importers:
       tsconfig: link:../../packages/tsconfig
       typescript: 4.9.5
       vite: 3.2.5
-
-  packages/database:
-    specifiers:
-      '@prisma/client': latest
-      prisma: latest
-    dependencies:
-      '@prisma/client': 4.10.1_prisma@4.10.1
-    devDependencies:
-      prisma: 4.10.1
 
   packages/eslint-config-custom:
     specifiers:
