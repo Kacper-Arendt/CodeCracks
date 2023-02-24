@@ -9,7 +9,9 @@ import { unknownEndpoint } from 'src/utils/unknownEndpoint';
 
 // ROUTES
 import { routes } from 'src/routes';
+import { PrismaClient } from 'database';
 
+const client = new PrismaClient();
 export const createServer = () => {
 	const app = express();
 
