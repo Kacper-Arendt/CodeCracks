@@ -91,6 +91,7 @@ function makeEnum(x) { return x; }
 
 exports.Prisma.ProfileScalarFieldEnum = makeEnum({
   id: 'id',
+  name: 'name',
   bio: 'bio',
   userId: 'userId'
 });
@@ -115,7 +116,7 @@ exports.Prisma.TransactionIsolationLevel = makeStrictEnum({
 exports.Prisma.UserScalarFieldEnum = makeEnum({
   id: 'id',
   email: 'email',
-  name: 'name'
+  hash: 'hash'
 });
 
 

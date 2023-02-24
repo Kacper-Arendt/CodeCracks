@@ -16,6 +16,7 @@ type UnwrapTuple<Tuple extends readonly unknown[]> = {
  */
 export type Profile = {
   id: number
+  name: string | null
   bio: string | null
   userId: number
 }
@@ -27,7 +28,7 @@ export type Profile = {
 export type User = {
   id: number
   email: string
-  name: string | null
+  hash: string
 }
 
 
@@ -828,18 +829,21 @@ export namespace Prisma {
 
   export type ProfileMinAggregateOutputType = {
     id: number | null
+    name: string | null
     bio: string | null
     userId: number | null
   }
 
   export type ProfileMaxAggregateOutputType = {
     id: number | null
+    name: string | null
     bio: string | null
     userId: number | null
   }
 
   export type ProfileCountAggregateOutputType = {
     id: number
+    name: number
     bio: number
     userId: number
     _all: number
@@ -858,18 +862,21 @@ export namespace Prisma {
 
   export type ProfileMinAggregateInputType = {
     id?: true
+    name?: true
     bio?: true
     userId?: true
   }
 
   export type ProfileMaxAggregateInputType = {
     id?: true
+    name?: true
     bio?: true
     userId?: true
   }
 
   export type ProfileCountAggregateInputType = {
     id?: true
+    name?: true
     bio?: true
     userId?: true
     _all?: true
@@ -964,6 +971,7 @@ export namespace Prisma {
 
   export type ProfileGroupByOutputType = {
     id: number
+    name: string | null
     bio: string | null
     userId: number
     _count: ProfileCountAggregateOutputType | null
@@ -989,6 +997,7 @@ export namespace Prisma {
 
   export type ProfileSelect = {
     id?: boolean
+    name?: boolean
     bio?: boolean
     user?: boolean | UserArgs
     userId?: boolean
@@ -1780,19 +1789,19 @@ export namespace Prisma {
   export type UserMinAggregateOutputType = {
     id: number | null
     email: string | null
-    name: string | null
+    hash: string | null
   }
 
   export type UserMaxAggregateOutputType = {
     id: number | null
     email: string | null
-    name: string | null
+    hash: string | null
   }
 
   export type UserCountAggregateOutputType = {
     id: number
     email: number
-    name: number
+    hash: number
     _all: number
   }
 
@@ -1808,19 +1817,19 @@ export namespace Prisma {
   export type UserMinAggregateInputType = {
     id?: true
     email?: true
-    name?: true
+    hash?: true
   }
 
   export type UserMaxAggregateInputType = {
     id?: true
     email?: true
-    name?: true
+    hash?: true
   }
 
   export type UserCountAggregateInputType = {
     id?: true
     email?: true
-    name?: true
+    hash?: true
     _all?: true
   }
 
@@ -1914,7 +1923,7 @@ export namespace Prisma {
   export type UserGroupByOutputType = {
     id: number
     email: string
-    name: string | null
+    hash: string
     _count: UserCountAggregateOutputType | null
     _avg: UserAvgAggregateOutputType | null
     _sum: UserSumAggregateOutputType | null
@@ -1939,7 +1948,7 @@ export namespace Prisma {
   export type UserSelect = {
     id?: boolean
     email?: boolean
-    name?: boolean
+    hash?: boolean
     profile?: boolean | ProfileArgs
   }
 
@@ -2714,6 +2723,7 @@ export namespace Prisma {
 
   export const ProfileScalarFieldEnum: {
     id: 'id',
+    name: 'name',
     bio: 'bio',
     userId: 'userId'
   };
@@ -2750,7 +2760,7 @@ export namespace Prisma {
   export const UserScalarFieldEnum: {
     id: 'id',
     email: 'email',
-    name: 'name'
+    hash: 'hash'
   };
 
   export type UserScalarFieldEnum = (typeof UserScalarFieldEnum)[keyof typeof UserScalarFieldEnum]
@@ -2766,6 +2776,7 @@ export namespace Prisma {
     OR?: Enumerable<ProfileWhereInput>
     NOT?: Enumerable<ProfileWhereInput>
     id?: IntFilter | number
+    name?: StringNullableFilter | string | null
     bio?: StringNullableFilter | string | null
     user?: XOR<UserRelationFilter, UserWhereInput>
     userId?: IntFilter | number
@@ -2773,6 +2784,7 @@ export namespace Prisma {
 
   export type ProfileOrderByWithRelationInput = {
     id?: SortOrder
+    name?: SortOrder
     bio?: SortOrder
     user?: UserOrderByWithRelationInput
     userId?: SortOrder
@@ -2785,6 +2797,7 @@ export namespace Prisma {
 
   export type ProfileOrderByWithAggregationInput = {
     id?: SortOrder
+    name?: SortOrder
     bio?: SortOrder
     userId?: SortOrder
     _count?: ProfileCountOrderByAggregateInput
@@ -2799,6 +2812,7 @@ export namespace Prisma {
     OR?: Enumerable<ProfileScalarWhereWithAggregatesInput>
     NOT?: Enumerable<ProfileScalarWhereWithAggregatesInput>
     id?: IntWithAggregatesFilter | number
+    name?: StringNullableWithAggregatesFilter | string | null
     bio?: StringNullableWithAggregatesFilter | string | null
     userId?: IntWithAggregatesFilter | number
   }
@@ -2809,14 +2823,14 @@ export namespace Prisma {
     NOT?: Enumerable<UserWhereInput>
     id?: IntFilter | number
     email?: StringFilter | string
-    name?: StringNullableFilter | string | null
+    hash?: StringFilter | string
     profile?: XOR<ProfileRelationFilter, ProfileWhereInput> | null
   }
 
   export type UserOrderByWithRelationInput = {
     id?: SortOrder
     email?: SortOrder
-    name?: SortOrder
+    hash?: SortOrder
     profile?: ProfileOrderByWithRelationInput
   }
 
@@ -2828,7 +2842,7 @@ export namespace Prisma {
   export type UserOrderByWithAggregationInput = {
     id?: SortOrder
     email?: SortOrder
-    name?: SortOrder
+    hash?: SortOrder
     _count?: UserCountOrderByAggregateInput
     _avg?: UserAvgOrderByAggregateInput
     _max?: UserMaxOrderByAggregateInput
@@ -2842,88 +2856,95 @@ export namespace Prisma {
     NOT?: Enumerable<UserScalarWhereWithAggregatesInput>
     id?: IntWithAggregatesFilter | number
     email?: StringWithAggregatesFilter | string
-    name?: StringNullableWithAggregatesFilter | string | null
+    hash?: StringWithAggregatesFilter | string
   }
 
   export type ProfileCreateInput = {
+    name?: string | null
     bio?: string | null
     user: UserCreateNestedOneWithoutProfileInput
   }
 
   export type ProfileUncheckedCreateInput = {
     id?: number
+    name?: string | null
     bio?: string | null
     userId: number
   }
 
   export type ProfileUpdateInput = {
+    name?: NullableStringFieldUpdateOperationsInput | string | null
     bio?: NullableStringFieldUpdateOperationsInput | string | null
     user?: UserUpdateOneRequiredWithoutProfileNestedInput
   }
 
   export type ProfileUncheckedUpdateInput = {
     id?: IntFieldUpdateOperationsInput | number
+    name?: NullableStringFieldUpdateOperationsInput | string | null
     bio?: NullableStringFieldUpdateOperationsInput | string | null
     userId?: IntFieldUpdateOperationsInput | number
   }
 
   export type ProfileCreateManyInput = {
     id?: number
+    name?: string | null
     bio?: string | null
     userId: number
   }
 
   export type ProfileUpdateManyMutationInput = {
+    name?: NullableStringFieldUpdateOperationsInput | string | null
     bio?: NullableStringFieldUpdateOperationsInput | string | null
   }
 
   export type ProfileUncheckedUpdateManyInput = {
     id?: IntFieldUpdateOperationsInput | number
+    name?: NullableStringFieldUpdateOperationsInput | string | null
     bio?: NullableStringFieldUpdateOperationsInput | string | null
     userId?: IntFieldUpdateOperationsInput | number
   }
 
   export type UserCreateInput = {
     email: string
-    name?: string | null
+    hash: string
     profile?: ProfileCreateNestedOneWithoutUserInput
   }
 
   export type UserUncheckedCreateInput = {
     id?: number
     email: string
-    name?: string | null
+    hash: string
     profile?: ProfileUncheckedCreateNestedOneWithoutUserInput
   }
 
   export type UserUpdateInput = {
     email?: StringFieldUpdateOperationsInput | string
-    name?: NullableStringFieldUpdateOperationsInput | string | null
+    hash?: StringFieldUpdateOperationsInput | string
     profile?: ProfileUpdateOneWithoutUserNestedInput
   }
 
   export type UserUncheckedUpdateInput = {
     id?: IntFieldUpdateOperationsInput | number
     email?: StringFieldUpdateOperationsInput | string
-    name?: NullableStringFieldUpdateOperationsInput | string | null
+    hash?: StringFieldUpdateOperationsInput | string
     profile?: ProfileUncheckedUpdateOneWithoutUserNestedInput
   }
 
   export type UserCreateManyInput = {
     id?: number
     email: string
-    name?: string | null
+    hash: string
   }
 
   export type UserUpdateManyMutationInput = {
     email?: StringFieldUpdateOperationsInput | string
-    name?: NullableStringFieldUpdateOperationsInput | string | null
+    hash?: StringFieldUpdateOperationsInput | string
   }
 
   export type UserUncheckedUpdateManyInput = {
     id?: IntFieldUpdateOperationsInput | number
     email?: StringFieldUpdateOperationsInput | string
-    name?: NullableStringFieldUpdateOperationsInput | string | null
+    hash?: StringFieldUpdateOperationsInput | string
   }
 
   export type IntFilter = {
@@ -2959,6 +2980,7 @@ export namespace Prisma {
 
   export type ProfileCountOrderByAggregateInput = {
     id?: SortOrder
+    name?: SortOrder
     bio?: SortOrder
     userId?: SortOrder
   }
@@ -2970,12 +2992,14 @@ export namespace Prisma {
 
   export type ProfileMaxOrderByAggregateInput = {
     id?: SortOrder
+    name?: SortOrder
     bio?: SortOrder
     userId?: SortOrder
   }
 
   export type ProfileMinOrderByAggregateInput = {
     id?: SortOrder
+    name?: SortOrder
     bio?: SortOrder
     userId?: SortOrder
   }
@@ -3042,7 +3066,7 @@ export namespace Prisma {
   export type UserCountOrderByAggregateInput = {
     id?: SortOrder
     email?: SortOrder
-    name?: SortOrder
+    hash?: SortOrder
   }
 
   export type UserAvgOrderByAggregateInput = {
@@ -3052,13 +3076,13 @@ export namespace Prisma {
   export type UserMaxOrderByAggregateInput = {
     id?: SortOrder
     email?: SortOrder
-    name?: SortOrder
+    hash?: SortOrder
   }
 
   export type UserMinOrderByAggregateInput = {
     id?: SortOrder
     email?: SortOrder
-    name?: SortOrder
+    hash?: SortOrder
   }
 
   export type UserSumOrderByAggregateInput = {
@@ -3258,13 +3282,13 @@ export namespace Prisma {
 
   export type UserCreateWithoutProfileInput = {
     email: string
-    name?: string | null
+    hash: string
   }
 
   export type UserUncheckedCreateWithoutProfileInput = {
     id?: number
     email: string
-    name?: string | null
+    hash: string
   }
 
   export type UserCreateOrConnectWithoutProfileInput = {
@@ -3279,21 +3303,23 @@ export namespace Prisma {
 
   export type UserUpdateWithoutProfileInput = {
     email?: StringFieldUpdateOperationsInput | string
-    name?: NullableStringFieldUpdateOperationsInput | string | null
+    hash?: StringFieldUpdateOperationsInput | string
   }
 
   export type UserUncheckedUpdateWithoutProfileInput = {
     id?: IntFieldUpdateOperationsInput | number
     email?: StringFieldUpdateOperationsInput | string
-    name?: NullableStringFieldUpdateOperationsInput | string | null
+    hash?: StringFieldUpdateOperationsInput | string
   }
 
   export type ProfileCreateWithoutUserInput = {
+    name?: string | null
     bio?: string | null
   }
 
   export type ProfileUncheckedCreateWithoutUserInput = {
     id?: number
+    name?: string | null
     bio?: string | null
   }
 
@@ -3308,11 +3334,13 @@ export namespace Prisma {
   }
 
   export type ProfileUpdateWithoutUserInput = {
+    name?: NullableStringFieldUpdateOperationsInput | string | null
     bio?: NullableStringFieldUpdateOperationsInput | string | null
   }
 
   export type ProfileUncheckedUpdateWithoutUserInput = {
     id?: IntFieldUpdateOperationsInput | number
+    name?: NullableStringFieldUpdateOperationsInput | string | null
     bio?: NullableStringFieldUpdateOperationsInput | string | null
   }
 

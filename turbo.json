@@ -10,7 +10,7 @@
         "api/**",
         "public/build/**"
       ],
-      "dependsOn": ["^build", "^db:generate"]
+      "dependsOn": ["^build"]
     },
     "test": {
       "outputs": ["coverage/**"],
@@ -20,7 +20,7 @@
       "dependsOn": ["^build"]
     },
     "dev": {
-      "dependsOn": ["^db:generate"],
+      "dependsOn": ["^build"],
       "cache": false,
       "persistent": true
     },
