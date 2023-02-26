@@ -27,14 +27,23 @@ const makeZIndexes = (layers: typeof zIndexesArray) =>
 export const zIndexes = makeZIndexes(zIndexesArray);
 
 export const colors = {
+	mainColor: 'hsl(220, 26%, 14%)',
+	asideColor: 'hsl(217,21%,27%)',
+
 	primary: 'hsl(241, 100%, 68%)',
 	white: 'hsl(0, 0%, 100%)',
 	black: 'hsl(0, 0%, 0%)',
 
-	dark: {
-		aside: 'hsl(217,21%,27%)',
-		main: 'hsl(220, 26%, 14%)',
-	},
+	grey100: 'hsl(0, 0%, 96.5%)',
+	grey200: 'hsl(0, 0%, 90.2%)',
+	grey300: 'hsl(0, 0%, 80%)',
+	grey400: 'hsl(0, 0%, 69.8%)',
+	grey500: 'hsl(0, 0%, 60%)',
+	grey600: 'hsl(0, 0%, 50%)',
+	grey700: 'hsl(0, 0%, 40%)',
+	grey800: 'hsl(0, 0%, 30%)',
+	grey900: 'hsl(0, 0%, 20%)',
+	grey1000: 'hsl(0, 0%, 10%)',
 };
 
 const theme = {

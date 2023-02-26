@@ -3,9 +3,10 @@
 // MODELS
 
 // COMPONENTS
+import { AuthLayout } from 'ui';
 
 // STYLES
 
 export const Register = () => {
-	return <>hello</>;
+	return <AuthLayout>hello</AuthLayout>;
 };
