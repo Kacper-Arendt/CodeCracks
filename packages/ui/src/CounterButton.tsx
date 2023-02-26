@@ -5,20 +5,18 @@ const StyledCounterButton = styled.div`
 	display: flex;
 	flex-direction: column;
 	row-gap: 2rem;
-	padding: 2rem;
-
 	align-items: center;
 	justify-content: center;
 
+	padding: 2rem;
+	color: ${({ theme }) => theme.primary};
+
 	button {
 		padding: 1rem;
+		color: ${({ theme }) => theme.primary};
 		background-color: transparent;
 		border: 2px solid ${({ theme }) => theme.primary};
 		border-radius: ${({ theme }) => theme.radius[2]};
-	}
-
-	p {
-		color: ${({ theme }) => theme.primary};
 	}
 `;
 
