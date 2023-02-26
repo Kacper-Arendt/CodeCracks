@@ -1,16 +1,16 @@
+import { createBrowserRouter, RouterProvider } from 'react-router-dom';
+
 // UTILS
 import { GlobalStyles, ThemeDefault } from 'web-utils';
 
-// COMPONENTS
-import { CounterButton } from 'ui';
+// ROUTES
+import { useRoutes } from 'src/routes';
 
 const App = () => {
 	return (
 		<ThemeDefault>
 			<GlobalStyles />
-			<div>
-				<CounterButton />
-			</div>
+			<RouterProvider router={createBrowserRouter(useRoutes())} />
 		</ThemeDefault>
 	);
 };
