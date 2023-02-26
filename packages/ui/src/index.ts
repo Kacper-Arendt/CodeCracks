@@ -1,2 +1,1 @@
-export * from './CounterButton';
-export * from './NewTabLink';
+export * from './layouts';

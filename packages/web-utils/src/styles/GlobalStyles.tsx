@@ -25,6 +25,11 @@ export const GlobalStyles = createGlobalStyle`
 			color: ${({ theme }) => theme.black};
 		}
 
+		p {
+			margin: 0;
+			padding: 0;
+		}
+
 		button {
 			cursor: pointer;
 			font-family: ${({ theme }) => theme.font};
