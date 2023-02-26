@@ -9,4 +9,8 @@ export default defineConfig({
 			src: path.resolve('src/'),
 		},
 	},
+
+	server: {
+		open: true,
+	},
 });
