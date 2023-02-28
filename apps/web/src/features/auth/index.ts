@@ -1,1 +1,1 @@
-export * from 'src/features/auth/Register';
+export * from 'src/features/auth/routes';

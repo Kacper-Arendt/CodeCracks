@@ -9,6 +9,9 @@ const StyledLayout = styled.div`
 
 const StyledMain = styled.main`
 	flex: 1;
+	display: flex;
+	padding: 2rem 2.5rem;
+
 	background-color: ${({ theme }) => theme.asideColor};
 
 	@media (min-width: ${({ theme }) => theme.breakpoints.lg}) {
