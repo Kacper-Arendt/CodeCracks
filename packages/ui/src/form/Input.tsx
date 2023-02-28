@@ -1,5 +1,5 @@
 import styled from 'styled-components';
-import { useState } from 'react';
+import { forwardRef, useState } from 'react';
 
 // COMPONENTS
 import { Label } from './Label';
@@ -44,20 +44,25 @@ interface InputInterface {
 	autoFocus?: boolean;
 }
 
-export const Input = ({ name, type, label, placeholder, autoFocus, disabled }: InputInterface) => {
+export const Input = forwardRef<HTMLInputElement, InputInterface>(function Input(
+	{ label, type, placeholder, autoFocus, disabled, ...props },
+	ref,
+) {
 	const [isVisible, setIsVisible] = useState(false);
 
 	return (
-		<Label label={label}>
+		<Label label={label} name={props.name}>
 			<StyledInputWrapper>
 				<StyledInput
+					ref={ref}
 					type={isVisible ? 'text' : type}
-					name={name}
+					{...props}
 					placeholder={placeholder}
 					autoFocus={autoFocus}
 					disabled={disabled}
 				/>
 				{type === 'password' && (
+					// todo add icon
 					<StyledButton type="button" onClick={() => setIsVisible(!isVisible)}>
 						X
 					</StyledButton>
@@ -65,4 +70,4 @@ export const Input = ({ name, type, label, placeholder, autoFocus, disabled }: I
 			</StyledInputWrapper>
 		</Label>
 	);
-};
+});

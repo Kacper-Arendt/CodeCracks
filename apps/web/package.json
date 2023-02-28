@@ -13,9 +13,11 @@
     "react": "^18.2.0",
     "react-dom": "^18.2.0",
     "react-router-dom": "^6.8.1",
+    "styled-components": "^5.3.6",
     "ui": "workspace:*",
     "web-components": "workspace:*",
-    "web-utils": "workspace:*"
+    "web-utils": "workspace:*",
+    "zod": "^3.20.6"
   },
   "devDependencies": {
     "@types/react": "^17.0.0",

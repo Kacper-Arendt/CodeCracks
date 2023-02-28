@@ -34,6 +34,8 @@ export const colors = {
 	white: 'hsl(0, 0%, 100%)',
 	black: 'hsl(0, 0%, 0%)',
 
+	error: 'hsl(0,100%,40%)',
+
 	grey100: 'hsl(0, 0%, 96.5%)',
 	grey200: 'hsl(0, 0%, 90.2%)',
 	grey300: 'hsl(0, 0%, 80%)',
