@@ -11,7 +11,7 @@ const StyledInputWrapper = styled.div`
 const StyledInput = styled.input`
 	width: 100%;
 	border-radius: ${({ theme }) => theme.radius[2]};
-	padding: 0.9rem 0.75rem;
+	padding: 1rem 0.75rem;
 	font-size: 0.9rem;
 	outline: none;
 	border: none;

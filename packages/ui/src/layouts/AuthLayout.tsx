@@ -10,13 +10,20 @@ const StyledLayout = styled.div`
 const StyledMain = styled.main`
 	flex: 1;
 	display: flex;
+	flex-direction: column;
 	padding: 2rem 2.5rem;
 
 	background-color: ${({ theme }) => theme.asideColor};
 
-	@media (min-width: ${({ theme }) => theme.breakpoints.lg}) {
+	@media (min-width: ${({ theme }) => theme.breakpoints.md}) {
 		max-width: 28rem; // 448px
 	}
+`;
+
+export const StyledTitle = styled.h1`
+	color: ${({ theme }) => theme.white};
+	font-size: 1.5rem;
+	padding-bottom: 3rem;
 `;
 
 const StyledGraphic = styled.div`
@@ -29,15 +36,24 @@ const StyledGraphic = styled.div`
 	}
 `;
 
-export const AuthLayout = ({ children, image }: { children: ReactNode; image: string | null }) => {
-	return (
-		<StyledLayout>
-			<StyledMain>{children}</StyledMain>
-			{image && (
-				<StyledGraphic>
-					<img src={image} alt="" />
-				</StyledGraphic>
-			)}
-		</StyledLayout>
-	);
-};
+export const AuthLayout = ({
+	children,
+	image,
+	title,
+}: {
+	children: ReactNode;
+	image?: string | null;
+	title?: string;
+}) => (
+	<StyledLayout>
+		<StyledMain>
+			{title && <StyledTitle>{title}</StyledTitle>}
+			{children}
+		</StyledMain>
+		{image && (
+			<StyledGraphic>
+				<img src={image} alt="" />
+			</StyledGraphic>
+		)}
+	</StyledLayout>
+);
