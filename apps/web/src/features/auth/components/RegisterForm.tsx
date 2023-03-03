@@ -1,16 +1,18 @@
-import { z, ZodObject } from 'zod';
+import { z } from 'zod';
 import styled from 'styled-components';
 
 // COMPONENTS
 import { Form, useForm } from 'web-components';
-import { Input } from 'ui';
+import { Input, Button } from 'ui';
 
 const signUpFormSchema = z.object({
 	email: z.string().email(),
-	password: z.string().min(6).max(256),
+	password: z.string().min(6).max(126),
 });
 
 export const StyledForm = styled.div`
+	width: 100%;
+
 	form {
 		display: flex;
 		flex-direction: column;
@@ -29,7 +31,9 @@ export const RegisterForm = () => {
 			<Form form={form} onSubmit={(values) => console.log(values)}>
 				<Input {...form.register('email')} type="text" label="Label" placeholder="placeholder" />
 				<Input {...form.register('password')} type="password" label="Label" placeholder="placeholder" />
-				<button type="submit">Click</button>
+				<Button type="submit" width="100%">
+					Click
+				</Button>
 			</Form>
 		</StyledForm>
 	);

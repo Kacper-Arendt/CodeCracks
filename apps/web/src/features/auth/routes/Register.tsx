@@ -4,7 +4,7 @@ import { RegisterForm } from 'src/features/auth/components/RegisterForm';
 
 export const Register = () => {
 	return (
-		<AuthLayout>
+		<AuthLayout title="Sign Up">
 			<RegisterForm />
 		</AuthLayout>
 	);
