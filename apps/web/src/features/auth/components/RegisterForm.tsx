@@ -1,5 +1,9 @@
 import { z } from 'zod';
 import styled from 'styled-components';
+import { ErrorBoundary } from 'react-error-boundary';
+
+// HOOKS
+import { useRegister } from 'src/features/auth/hooks';
 
 // COMPONENTS
 import { Form, useForm } from 'web-components';
@@ -17,24 +21,26 @@ export const StyledForm = styled.div`
 		display: flex;
 		flex-direction: column;
 		row-gap: 0.75rem;
-		width: 100%;
 	}
 `;
 
 export const RegisterForm = () => {
+	const { registerWithCredentials, loading } = useRegister();
 	const form = useForm({
 		schema: signUpFormSchema,
 	});
 
 	return (
-		<StyledForm>
-			<Form form={form} onSubmit={(values) => console.log(values)}>
-				<Input {...form.register('email')} type="text" label="Label" placeholder="placeholder" />
-				<Input {...form.register('password')} type="password" label="Label" placeholder="placeholder" />
-				<Button type="submit" width="100%">
-					Click
-				</Button>
-			</Form>
-		</StyledForm>
+		<ErrorBoundary FallbackComponent={() => null}>
+			<StyledForm>
+				<Form form={form} onSubmit={(values) => registerWithCredentials(values)}>
+					<Input {...form.register('email')} type="text" label="Email" />
+					<Input {...form.register('password')} type="password" label="Password" />
+					<Button type="submit" width="100%" disabled={loading}>
+						{loading ? 'Loading...' : 'Submit'}
+					</Button>
+				</Form>
+			</StyledForm>
+		</ErrorBoundary>
 	);
 };
