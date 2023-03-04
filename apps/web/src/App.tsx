@@ -5,12 +5,18 @@ import { GlobalStyles, ThemeDefault } from 'web-utils';
 
 // ROUTES
 import { useRoutes } from 'src/routes';
+import { FetchContextProvider } from 'web-utils';
+
+// CONFIG
+import { API_URL } from 'src/config';
 
 const App = () => {
 	return (
 		<ThemeDefault>
 			<GlobalStyles />
-			<RouterProvider router={createBrowserRouter(useRoutes())} />
+			<FetchContextProvider baseUrl={API_URL} token={null}>
+				<RouterProvider router={createBrowserRouter(useRoutes())} />
+			</FetchContextProvider>
 		</ThemeDefault>
 	);
 };
