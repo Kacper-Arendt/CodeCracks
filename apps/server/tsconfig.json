@@ -8,7 +8,8 @@
     "preserveSymlinks": true,
     "typeRoots": [
       "/node_modules/@types"
-    ]
+    ],
+    "types": ["jest", "node", "@types/jest"]
   },
   "exclude": ["node_modules"],
   "extends": "tsconfig/base.json",
