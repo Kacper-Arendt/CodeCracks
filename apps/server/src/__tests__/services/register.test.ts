@@ -1,13 +1,12 @@
 import { uuid } from 'server-utils';
-import { startServer } from 'src/__tests__/helpers';
+import { startServer } from 'src/utils/testUtils';
 
 describe('register route', () => {
 	let request: any = {};
 
-	beforeEach(async () => (request = startServer()));
+	beforeEach(async () => (request = await startServer()));
 
-	const randomString = uuid();
-	const newUser = { email: `${randomString}@example.com`, password: 'admin' };
+	const newUser = { email: `${uuid()}@example.com`, password: uuid() };
 
 	it('should return 404, data not provided', async () => {
 		await request
