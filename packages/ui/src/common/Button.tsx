@@ -32,21 +32,6 @@ const StyledButton = styled.button<Pick<ButtonInterface, 'variant' | 'size' | 'd
 					background-color: ${({ theme }) => theme.primary};
 				`;
 		}
-	}}
-
-	${({ variant }) => {
-		switch (variant) {
-			case 'outlined':
-				return css`
-					border: ${({ theme }) => theme.primary};
-					color: ${({ theme }) => theme.white};
-				`;
-			case 'contained':
-			default:
-				return css`
-					background-color: ${({ theme }) => theme.primary};
-				`;
-		}
 	}};
 
 	${({ size }) =>
