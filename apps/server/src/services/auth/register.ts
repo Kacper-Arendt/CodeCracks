@@ -1,8 +1,9 @@
 import { Request, Response } from 'express';
 import { hash } from 'server-utils';
+import * as console from 'console';
 
-import { PrismaClient } from 'prisma/client';
-const prisma = new PrismaClient();
+// MODELS
+import { createUser, findUserByEmail } from 'src/models/user';
 
 export const register = async (req: Request, res: Response) => {
 	try {
@@ -10,20 +11,13 @@ export const register = async (req: Request, res: Response) => {
 
 		if (!password || !email) return res.status(404).json({ error: 'Data not provided' });
 
-		const existingUser = await prisma.user.findFirst({
-			where: { email },
-		});
+		const existingUser = await findUserByEmail(email);
 
-		if (existingUser) return res.status(404).json({ error: 'Email already exists' });
+		if (existingUser) return res.status(403).json({ error: 'Email already exists' });
 
 		const passwordHash = await hash(password);
 
-		const result = await prisma.user.create({
-			data: {
-				hash: passwordHash,
-				email,
-			},
-		});
+		const result = await createUser({ email, hash: passwordHash });
 
 		res.json({ id: result.id });
 	} catch (e) {

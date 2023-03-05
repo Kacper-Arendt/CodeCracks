@@ -5,7 +5,6 @@ import morgan from 'morgan';
 import cors from 'cors';
 import helmet from 'helmet';
 import { errorHandler } from 'src/utils/errorHandler';
-import { unknownEndpoint } from 'src/utils/unknownEndpoint';
 
 // ROUTES
 import { routes } from 'src/routes';
@@ -23,8 +22,11 @@ export const createServer = () => {
 
 	app.use('/', routes);
 
+	app.get('*', (req, res) => {
+		res.status(404).send({ error: 'unknown endpoint' });
+	});
+
 	app.use(errorHandler);
-	app.use(unknownEndpoint);
 
 	return app;
 };
