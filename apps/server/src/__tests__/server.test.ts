@@ -1,9 +1,9 @@
-import { startServer } from 'src/__tests__/helpers';
+import { startServer } from 'src/utils/testUtils';
 
 describe('server', () => {
 	let request: any = {};
 
-	beforeEach(async () => (request = startServer()));
+	beforeEach(async () => (request = await startServer()));
 
 	it('should return 404 on unknown endpoint', async () => {
 		request

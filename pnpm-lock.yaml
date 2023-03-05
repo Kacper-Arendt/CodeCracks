@@ -33,6 +33,7 @@ importers:
       express: ^4.17.1
       helmet: ^6.0.1
       jest: ^26.6.3
+      jest-mock-extended: 2.0.4
       jest-presets: workspace:*
       morgan: ^1.10.0
       prisma: latest
@@ -51,6 +52,7 @@ importers:
       esbuild: 0.17.8
       express: 4.18.2
       helmet: 6.0.1
+      jest-mock-extended: 2.0.4_xuote2qreek47x2di7kesslrai
       morgan: 1.10.0
       server-utils: link:../../packages/server-utils
       ts-node: 10.9.1_zlol4fzmmjgb3bdeviopae4asm
@@ -1025,7 +1027,6 @@ packages:
       - supports-color
       - ts-node
       - utf-8-validate
-    dev: true
 
   /@jest/environment/26.6.2:
     resolution: {integrity: sha512-nFy+fHl28zUrRsCeMB61VDThV1pVTtlEokBRgqPrcT1JNq4yRNIyTHfyht6PqtUvY9IsuLGTrbG8kPXjSZIZwA==}
@@ -1136,7 +1137,6 @@ packages:
       - supports-color
       - ts-node
       - utf-8-validate
-    dev: true
 
   /@jest/transform/26.6.2:
     resolution: {integrity: sha512-E9JjhUgNzvuQ+vVAL21vlyfy12gP0GhazGgJC4h6qUt1jSdUXGWJ1wfu/X7Sd8etSgxV4ovT1pb9v5D6QW4XgA==}
@@ -4028,7 +4028,6 @@ packages:
       - supports-color
       - ts-node
       - utf-8-validate
-    dev: true
 
   /jest-config/26.6.3:
     resolution: {integrity: sha512-t5qdIj/bCj2j7NFVHb2nFB4aUdfucDn3JRKgrZnplb8nieAirAzRSHP8uDEd+qV6ygzg9Pz4YG7UTJf94LPSyg==}
@@ -4096,7 +4095,6 @@ packages:
       - canvas
       - supports-color
       - utf-8-validate
-    dev: true
 
   /jest-diff/26.6.2:
     resolution: {integrity: sha512-6m+9Z3Gv9wN0WFVasqjCL/06+EFCMTqDEUl/b87HYK2rAPTyfz4ZIuSlPhY51PIQRWx5TaxeF1qmXKe9gfN3sA==}
@@ -4234,7 +4232,6 @@ packages:
       - supports-color
       - ts-node
       - utf-8-validate
-    dev: true
 
   /jest-leak-detector/26.6.2:
     resolution: {integrity: sha512-i4xlXpsVSMeKvg2cEKdfhh0H39qlJlP5Ex1yQxwF9ubahboQYMgTtz5oML35AVA3B4Eu+YsmwaiKVev9KCvLxg==}
@@ -4265,6 +4262,17 @@ packages:
       pretty-format: 26.6.2
       slash: 3.0.0
       stack-utils: 2.0.6
+
+  /jest-mock-extended/2.0.4_xuote2qreek47x2di7kesslrai:
+    resolution: {integrity: sha512-MgL3B3GjURQFjjPGqbCANydA5BFNPygv0mYp4Tjfxohh9MWwxxX8Eq2p6ncCt/Vt+RAnaLlDaI7gwrDRD7Pt9A==}
+    peerDependencies:
+      jest: ^24.0.0 || ^25.0.0 || ^26.0.0 || ^27.0.0
+      typescript: ^3.0.0 || ^4.0.0
+    dependencies:
+      jest: 26.6.3_ts-node@10.9.1
+      ts-essentials: 7.0.3_typescript@4.9.5
+      typescript: 4.9.5
+    dev: false
 
   /jest-mock/26.6.2:
     resolution: {integrity: sha512-YyFjePHHp1LzpzYcmgqkJ0nm0gg/lJx2aZFzFy1S6eUqNjXsOqTK10zNRff2dNfssgokjkG65OlWNcIlgd3zew==}
@@ -4372,7 +4380,6 @@ packages:
       - supports-color
       - ts-node
       - utf-8-validate
-    dev: true
 
   /jest-runtime/26.6.3:
     resolution: {integrity: sha512-lrzyR3N8sacTAMeonbqpnSka1dHNux2uk0qqDXVkMv2c/A3wYnvQ4EXuI013Y6+gSKSCxdaczvf4HF0mVXHRdw==}
@@ -4451,7 +4458,6 @@ packages:
       - supports-color
       - ts-node
       - utf-8-validate
-    dev: true
 
   /jest-serializer/26.6.2:
     resolution: {integrity: sha512-S5wqyz0DXnNJPd/xfIzZ5Xnp1HrJWBczg8mMfMpN78OJ5eDxXyf+Ygld9wX1DnUWbIbhM1YDY95NjR4CBXkb2g==}
@@ -4554,7 +4560,6 @@ packages:
       - supports-color
       - ts-node
       - utf-8-validate
-    dev: true
 
   /joycon/3.1.1:
     resolution: {integrity: sha512-34wB/Y7MW7bzjKRjUKTa46I2Z7eV62Rkhva+KkopW7Qvv/OSWBqvkSY7vusOPrNuZcUG3tApvdVgNB8POj3SPw==}
@@ -6197,6 +6202,14 @@ packages:
   /tree-kill/1.2.2:
     resolution: {integrity: sha512-L0Orpi8qGpRG//Nd+H90vFB+3iHnue1zSSGmNOOCh1GLJ7rUKVwV2HvijphGQS2UmhUZewS9VgvxYIdgr+fG1A==}
     hasBin: true
+
+  /ts-essentials/7.0.3_typescript@4.9.5:
+    resolution: {integrity: sha512-8+gr5+lqO3G84KdiTSMRLtuyJ+nTBVRKuCrK4lidMPdVeEp0uqC875uE5NMcaA7YYMN7XsNiFQuMvasF8HT/xQ==}
+    peerDependencies:
+      typescript: '>=3.7.0'
+    dependencies:
+      typescript: 4.9.5
+    dev: false
 
   /ts-interface-checker/0.1.13:
     resolution: {integrity: sha512-Y/arvbn+rrz3JCKl9C4kVNfTfSm2/mEp5FSz5EsZSANGPSlQrpRI5M4PKF+mJnE52jOO90PnPSc3Ur3bTQw0gA==}
