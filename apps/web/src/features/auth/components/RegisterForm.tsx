@@ -33,9 +33,9 @@ export const RegisterForm = () => {
 	return (
 		<ErrorBoundary FallbackComponent={() => null}>
 			<StyledForm>
-				<Form form={form} onSubmit={(values) => registerWithCredentials(values)}>
-					<Input {...form.register('email')} type="text" label="Email" />
-					<Input {...form.register('password')} type="password" label="Password" />
+				<Form form={form} onSubmit={(values) => registerWithCredentials(values)} aria-label="register">
+					<Input {...form.register('email')} type="text" label="Email" placeholder="Enter your email address" />
+					<Input {...form.register('password')} type="password" label="Password" placeholder="Enter your password" />
 					<Button type="submit" width="100%" disabled={loading}>
 						{loading ? 'Loading...' : 'Submit'}
 					</Button>
