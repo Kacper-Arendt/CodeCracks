@@ -1,31 +1,23 @@
-import { useEffect } from 'react';
+import { createBrowserRouter, RouterProvider } from 'react-router-dom';
 
-// COMPONENTS
-import { CounterButton, NewTabLink } from 'ui';
+// UTILS
+import { GlobalStyles, ThemeDefault } from 'web-utils';
+
+// ROUTES
+import { useRoutes } from 'src/routes';
+import { FetchContextProvider } from 'web-utils';
+
+// CONFIG
+import { API_URL } from 'src/config';
 
 const App = () => {
-	const url = import.meta.env.VITE_SERVER_URL;
-
-	useEffect(() => {
-		const handleFetch = () => {
-			fetch(url).then(async (resp) => {
-				const data = await resp.json();
-				console.log(data);
-			});
-		};
-
-		handleFetch();
-	}, []);
-
 	return (
-		<div className="container">
-			<CounterButton />
-			<p className="description">
-				Built With <NewTabLink href="https://turbo.build/repo">Turborepo</NewTabLink> + Built With{' '}
-				<NewTabLink href="https://turbo.build/repo">Turborepo</NewTabLink> +{' '}
-				<NewTabLink href="https://vitejs.dev/">Vite</NewTabLink>
-			</p>
-		</div>
+		<ThemeDefault>
+			<GlobalStyles />
+			<FetchContextProvider baseUrl={API_URL} token={null}>
+				<RouterProvider router={createBrowserRouter(useRoutes())} />
+			</FetchContextProvider>
+		</ThemeDefault>
 	);
 };
 

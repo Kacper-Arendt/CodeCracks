@@ -1,9 +1,10 @@
 import { createServer } from 'src/server';
 import * as console from 'console';
+import { port } from 'src/config';
 
-const port = process.env.PORT || 5001;
+const serverPort = port || 5001;
 const server = createServer();
 
-server.listen(port, () => {
-	console.log(`api running on ${port}`);
+server.listen(serverPort, () => {
+	console.log(`api running on ${serverPort}`);
 });

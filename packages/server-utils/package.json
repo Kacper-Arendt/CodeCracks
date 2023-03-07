@@ -1,0 +1,25 @@
+{
+  "name": "server-utils",
+  "version": "0.0.0",
+  "main": "./dist/index.js",
+  "source": "./index.ts",
+  "types": "./dist/index.d.ts",
+  "scripts": {
+    "build": "tsc",
+    "clean": "rm -rf .turbo && rm -rf node_modules && rm -rf dist",
+    "dev": "tsc -w",
+    "lint": "TIMING=1 eslint \"src/**/*.ts*\"",
+    "test": "jest"
+  },
+  "devDependencies": {
+    "eslint-config-custom": "workspace:*",
+    "jest": "^26.6.3",
+    "jest-presets": "workspace:*",
+    "tsconfig": "workspace:*",
+    "typescript": "latest"
+  },
+  "dependencies": {
+    "@types/bcrypt": "^5.0.0",
+    "bcrypt": "^5.1.0"
+  }
+}
