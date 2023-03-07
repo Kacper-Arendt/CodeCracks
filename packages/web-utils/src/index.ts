@@ -8,3 +8,6 @@ export * from './lazyImport/LazyImport';
 // FETCH
 export * from './fetch/useFetch';
 export * from './fetch/fetchContext';
+
+// HELPERS
+export * from './helpers/string';
