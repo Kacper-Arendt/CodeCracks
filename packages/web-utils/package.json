@@ -1,5 +1,5 @@
 {
-  "name": "ui",
+  "name": "web-utils",
   "version": "0.0.0",
   "private": true,
   "license": "MIT",
@@ -16,9 +16,6 @@
     "dev": "tsup src/index.ts --format esm,cjs --watch --dts --external react",
     "lint": "eslint \"src/**/*.ts*\"",
     "test": "jest"
-  },
-  "jest": {
-    "preset": "jest-presets/jest/node"
   },
   "devDependencies": {
     "@types/jest": "^26.0.22",
