@@ -10,7 +10,8 @@
     "start": "node dist/index.js",
     "test": "jest",
     "build:start": "esbuild src/index.ts --bundle --platform=node --outfile=dist/index.js --external:express --external:cors && node dist/index.js && prisma generate",
-    "build": "tsup src/index.ts && node dist/index.js && prisma generate"
+    "build": "tsup src/index.ts  node dist/index.js",
+    "build2": "tsup src/index.ts && node dist/index.js && prisma generate"
   },
   "jest": {
     "preset": "jest-presets/jest/node",
