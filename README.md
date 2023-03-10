@@ -1,15 +1,13 @@
-# Notes, Finance Tracker & Quiz Game
+# Notes, Finance Tracker
 
 This is a full-stack React & Express application built with Turborepo that allows users to manage their notes, keep track of
-their finances, and test their knowledge about Lord of the Rings.
+their finances
 
 ## Features
 
 - Notes: Users can create, edit, and delete their notes.
 - Finance Tracker: Users can add, edit, and delete their
 - financial transactions, categorize them, and view their overall financial status.
-- Quiz Game: Users can answer multiple-choice questions about Lord of the Rings and get their score after completing the
-  quiz.
 
 ## Roadmap
 
@@ -20,7 +18,7 @@ their finances, and test their knowledge about Lord of the Rings.
 :white_check_mark: Deployment: Deploy the application to a cloud platform or a web server.
 
 :wrench: Authentication:
-  - Registration :wrench: 
+  - Registration :white_check_mark:
   - Login :white_large_square:
 
 :white_large_square: Database: Implement a database to store app data.
@@ -29,7 +27,6 @@ their finances, and test their knowledge about Lord of the Rings.
 
 :white_large_square: Notes: Implement the notes feature.
 
-:white_large_square: Quiz: Implement the quiz game feature.
 
  
 
