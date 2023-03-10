@@ -17,6 +17,8 @@ export const register = async (req: Request, res: Response) => {
 
 		const passwordHash = await hash(password);
 
+		if (!passwordHash) return res.status(400).json({ error: 'Error hashing password' });
+
 		const result = await createUser({ email, hash: passwordHash });
 
 		res.json({ id: result.id });

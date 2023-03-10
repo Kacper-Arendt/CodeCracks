@@ -211,8 +211,8 @@ export namespace Prisma {
 
 
   /**
-   * Prisma Client JS version: 4.10.1
-   * Query Engine version: aead147aa326ccb985dcfed5b065b4fdabd44b19
+   * Prisma Client JS version: 4.11.0
+   * Query Engine version: 8fde8fef4033376662cad983758335009d522acb
    */
   export type PrismaVersion = {
     client: string
@@ -999,8 +999,8 @@ export namespace Prisma {
     id?: boolean
     name?: boolean
     bio?: boolean
-    user?: boolean | UserArgs
     userId?: boolean
+    user?: boolean | UserArgs
   }
 
 
@@ -2778,16 +2778,16 @@ export namespace Prisma {
     id?: IntFilter | number
     name?: StringNullableFilter | string | null
     bio?: StringNullableFilter | string | null
-    user?: XOR<UserRelationFilter, UserWhereInput>
     userId?: IntFilter | number
+    user?: XOR<UserRelationFilter, UserWhereInput>
   }
 
   export type ProfileOrderByWithRelationInput = {
     id?: SortOrder
     name?: SortOrder
     bio?: SortOrder
-    user?: UserOrderByWithRelationInput
     userId?: SortOrder
+    user?: UserOrderByWithRelationInput
   }
 
   export type ProfileWhereUniqueInput = {
