@@ -14,3 +14,4 @@ public/dist
 .apps/server/prisma/client/*
 apps/server/prisma/client/*
 client/*
+/apps/server/prisma/client/
