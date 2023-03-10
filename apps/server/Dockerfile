@@ -22,7 +22,7 @@
 # BUILDER - Stage 1
 FROM node:alpine as builder
 WORKDIR /app
-RUN apk update && yarn global add turbo
+RUN npm i turbo --global
 COPY . .
 RUN turbo prune --scope=server --docker
 
