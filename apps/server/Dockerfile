@@ -1,4 +1,5 @@
-FROM node:16-alpine AS base
+#FROM node:16-alpine AS base
+FROM node:18-alpine3.16 AS base
 ENV CI=true
 ARG PNPM_VERSION=6.14.3
 RUN npm --global install pnpm@${PNPM_VERSION}
