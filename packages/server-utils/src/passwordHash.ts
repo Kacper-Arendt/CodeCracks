@@ -1,3 +1,9 @@
-import { hash as bcryptHash } from 'bcrypt';
+import * as argon2 from 'argon2';
 
-export const hash = (password: string, saltRounds: number = 10) => bcryptHash(password, saltRounds);
+export const hash = async (password: string) => {
+	try {
+		return await argon2.hash(password);
+	} catch (err) {
+		console.log(err);
+	}
+};
