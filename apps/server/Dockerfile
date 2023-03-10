@@ -1,69 +1,31 @@
-#FROM node:16-alpine AS base
-#ENV CI=true
-#ARG PNPM_VERSION=6.14.3
-#RUN npm --global install pnpm@${PNPM_VERSION}
-#WORKDIR /root/monorepo
-#
-#FROM base AS dev
-#COPY ./pnpm-lock.yaml .
-#RUN pnpm fetch
-#COPY . .
-#RUN pnpm install --filter "server..." --frozen-lockfile --unsafe-perm
-#RUN pnpm build --filter "server^..."
-#RUN #pnpm test --if-present --filter "server"
-#RUN pnpm build --filter "server"
-#
-#WORKDIR /root/monorepo/apps/server
-#EXPOSE 3002
-#ENV NODE_ENV=production
-##ENTRYPOINT ["pnpm", "build:start"]
-#ENTRYPOINT ["pnpm", "build"]
-
-FROM node:alpine AS builder
-# Check https://github.com/nodejs/docker-node/tree/b4117f9333da4138b03a546ec926ef50a31506c3#nodealpine to understand why libc6-compat might be needed.
-RUN apk add --no-cache libc6-compat
-RUN apk update
-# Set working directory
-WORKDIR /app
-RUN yarn global add turbo
-COPY . .
-
-# BUILDER - Stage 1
-#FROM node:alpine as builder
-#WORKDIR /app
-#COPY . .
-RUN turbo prune --scope=server --docker
-
-FROM node:alpine AS installer
-RUN apk add --no-cache libc6-compat
-RUN apk update
+FROM node:alpine as builder
+ENV CI=true
+ARG PNPM_VERSION=6.14.3
+RUN npm --global install pnpm@${PNPM_VERSION}
 WORKDIR /app
 
-# INSTALLER - Stage 2
+
 FROM node:alpine as installer
 WORKDIR /app
-RUN apk update && apk add g++ make py3-pip && yarn global add pnpm
-
-# First install dependencies (as they change less often)
-COPY --from=builder /app/out/full/.gitignore ./.gitignore
-COPY --from=builder /app/out/full/turbo.json ./turbo.json
-COPY --from=builder /app/out/pnpm-lock.yaml ./pnpm-lock.yaml
-COPY --from=builder /app/out/pnpm-workspace.yaml ./pnpm-workspace.yaml
+COPY ./pnpm-lock.yaml .
 RUN pnpm fetch
+COPY . .
+RUN pnpm install --filter "server..." --frozen-lockfile --unsafe-perm
+RUN #pnpm build --filter "server^..."
+RUN pnpm build --filter "server"
 
-# Build the project and its dependencies
-COPY --from=builder /app/out/full/ .
-RUN pnpm install -r --offline --ignore-scripts
-RUN pnpm turbo run build --filter=server
-
-# # RUNNER - Stage 3
 FROM node:alpine AS runner
 WORKDIR /app
+RUN #pnpm test --if-present --filter "server"
 
-# # Don't run production as root
 RUN addgroup --system --gid 1001 app
 RUN adduser --system --uid 1001 app
 USER app
 COPY --from=installer /app .
+EXPOSE 3002
+ENV NODE_ENV=production
 
 CMD ["node", "apps/server/dist/index.js"]
+
+#ENTRYPOINT ["pnpm", "build:start"]
+#ENTRYPOINT ["pnpm", "start"]
