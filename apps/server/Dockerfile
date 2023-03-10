@@ -16,4 +16,5 @@ RUN pnpm build --filter "server"
 WORKDIR /root/monorepo/apps/server
 EXPOSE 3002
 ENV NODE_ENV=production
-ENTRYPOINT ["pnpm", "build:start"]
+#ENTRYPOINT ["pnpm", "build:start"]
+ENTRYPOINT ["pnpm", "build"]
