@@ -32,6 +32,7 @@ export const useFetch = <T = unknown>() => {
 					...(token ? { token: `bearer ${token}` } : {}),
 					'Content-Type': 'application/json',
 				},
+				mode: 'cors',
 				signal,
 			});
 			if (!res.ok) {
