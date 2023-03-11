@@ -1,3 +1,5 @@
+import axios from 'axios';
+
 // HOOKS
 import { useFetch } from 'web-utils';
 
@@ -11,7 +13,13 @@ export const useRegister = () => {
 		};
 		const onFinish = () => alert('account created successfully');
 
-		fetchFn({ url: 'auth/register', options: { method: 'POST', body }, onFinish, onError });
+		axios
+			.post('https://plankton-app-92stg.ondigitalocean.app/auth/register', body)
+			.then((response) => {
+				console.log(response);
+			})
+			.catch((err) => console.log(err));
+		// fetchFn({ url: 'auth/register', options: { method: 'POST', body }, onFinish, onError });
 	};
 
 	return { loading, registerWithCredentials };
