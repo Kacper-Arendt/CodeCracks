@@ -13,6 +13,8 @@ export const createServer = () => {
 	const app = express();
 
 	app.use(cors());
+	app.options('*', cors());
+
 	app.disable('x-powered-by');
 	app.use(morgan('dev'));
 	app.use(helmet());
