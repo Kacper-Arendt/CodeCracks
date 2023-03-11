@@ -12,16 +12,6 @@ import { routes } from 'src/routes';
 export const createServer = () => {
 	const app = express();
 
-	app.use((req, res, next) => {
-		res.header('Access-Control-Allow-Origin', '*');
-		res.header(
-			'Access-Control-Allow-Headers',
-			"Origin, X-Requested-With, Content-Type, Accept, Authorization, 'Content-Type' : 'multipart/form-data' ,* ",
-		);
-		res.header('Access-Control-Allow-Methods', 'GET, POST, PATCH, PUT, DELETE, OPTIONS');
-		next();
-	});
-
 	app.use(cors());
 	app.disable('x-powered-by');
 	app.use(morgan('dev'));
