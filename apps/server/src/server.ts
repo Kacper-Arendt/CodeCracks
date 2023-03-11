@@ -12,15 +12,11 @@ import { routes } from 'src/routes';
 export const createServer = () => {
 	const app = express();
 
+	app.use(cors({ origin: '*' }));
+	app.options('*', cors());
 	app.disable('x-powered-by');
 	app.use(morgan('dev'));
 	app.use(helmet());
-	app.use(
-		cors({
-			credentials: true,
-			origin: ['https://xcode-cracks-web.vercel.app/', 'http://localhost:3001'],
-		}),
-	);
 	app.use(express.urlencoded());
 	app.use(express.json());
 
