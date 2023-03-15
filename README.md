@@ -1,11 +1,13 @@
-# Notes, Finance Tracker
+# Articles, Finance Tracker
 
-This is a full-stack React & Express application built with Turborepo that allows users to manage their notes, keep track of
-their finances
+This is a full-stack React & Express application built with Turborepo that allows users to manage their articles, keep track of
+their finances.
+
+The main reason why I created this project is the desire to master managing multiple projects in one monorepo
 
 ## Features
 
-- Notes: Users can create, edit, and delete their notes.
+- Articles: Users can create, edit, delete articles as well as view them on the blog(Next.js).
 - Finance Tracker: Users can add, edit, and delete their
 - financial transactions, categorize them, and view their overall financial status.
 
@@ -25,7 +27,7 @@ their finances
 
 :white_large_square: Core: Basic app layout.
 
-:white_large_square: Notes: Implement the notes feature.
+:white_large_square: Articles: Implement the articles feature.
 
 
  
